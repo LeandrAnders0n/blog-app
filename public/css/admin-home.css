@@ -1,0 +1,107 @@
+/* admin-home.css */
+.top-bar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    padding-bottom: 50px;
+    height: 40px;
+    padding-top: 15px;
+}
+
+h2{
+    font-size: 26px;
+    font-weight: 700;
+    font-family: 'Caveat', cursive;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-name {
+    font-size: 22px;
+    font-weight: 700;
+    font-family: 'Caveat', cursive;
+
+     /* Adjust the font size as needed */
+}
+
+.navigation {
+    display: flex;
+}
+
+.normal-font {
+    margin-left: 20px; /* Adjust the spacing between navigation items */
+    font-size: 16px; /* Adjust the font size as needed */
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 700;
+    color: #fff; /* Set your desired text color */
+}
+
+i:hover{
+    color:#3d72a6
+}
+body {
+    background-color: #f3f3f3;
+}
+
+.custom-table-container {
+    margin-top: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px; /* Adjust border-radius for rounded corners */
+    overflow: hidden;
+    padding: 15px;
+}
+
+.custom-table {
+    background-color: #333;
+    color: white;
+    border-radius: 12px;
+}
+
+.custom-table th {
+    background-color: #333;
+    color: white;
+    height: 50px; /* Adjust the height of the table header */
+    border-top-left-radius: 12px; /* Adjust border radius for top-left corner */
+    border-top-right-radius: 12px; /* Adjust border radius for top-right corner */
+}
+
+.custom-table tbody {
+    background-color: #444;
+    color: white;
+}
+
+.custom-table th,
+.custom-table td {
+    max-width: 150px; /* Adjust the max-width as needed */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.form-container{
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+form text{
+    width: 100%;
+}
+
+form label{
+    color: #333;
+    font-weight: 700;
+}
+
+.new-post .btn {
+    background-color: transparent;
+    border: 1px solid 000;
+    padding: 5px 10px; /* Adjust padding as needed */
+}
