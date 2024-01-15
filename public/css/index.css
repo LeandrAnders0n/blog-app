@@ -37,7 +37,7 @@ body {
 .nav-link {
     color: #fff;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
     position: relative;
     display: inline-block;
@@ -237,22 +237,6 @@ body {
 
 .load-more:hover{
     color: #3d72a6;
-}
-
-/* Footer styling */
-.footer {
-    margin-top: 100px;
-    background-color: #000;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-}
-
-/* Footer links styling */
-.footer a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
 }
 
 /* Media queries */

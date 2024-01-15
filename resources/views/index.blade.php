@@ -29,11 +29,11 @@
          </div>
          <br><br>
 
-         <div style="margin-left:60px; margin-right:60px">
+         <div >
 
          <div class="image-row second-row">
             @foreach ($posts->slice(3, 5) as $post) {{-- Display next 3 posts --}}
-            <a href="/blog/post/{{ $post->post_id }}" class="image-container" style="margin-left:-60px">
+            <a href="/blog/post/{{ $post->post_id }}" class="image-container">
                <img class="image" src="{{ $post->image_path }}" alt="{{ $post->title }}">
                <div class="button-text button">{{ $post->tag }}</div>
             </a>
