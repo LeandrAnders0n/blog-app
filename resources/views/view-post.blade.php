@@ -13,7 +13,7 @@
    </head>
    <body>
       <!-- Top Bar -->
-      @include('components.topbar')
+      @include('components.navbar')
       <!-- @include('components.navbar') -->
 
       <div class="container main-container">
