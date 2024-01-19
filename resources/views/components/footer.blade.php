@@ -29,13 +29,13 @@
             Know More
           </h6>
           <p>
-            <a href="#!" class="text-reset">About Us</a>
+            <a href="/" class="text-reset">About Us</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Disclaimer</a>
+            <a href="/disclaimer" class="text-reset">Disclaimer</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Fact Checking</a>
+            <a href="/fact-checking" class="text-reset">Fact Checking</a>
           </p>
         </div>
         <!-- Grid column -->
@@ -47,13 +47,13 @@
             Useful links
           </h6>
           <p>
-            <a href="#!" class="text-reset">T & C</a>
+            <a href="/terms-and-conditions" class="text-reset">T & C</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Copyright</a>
+            <a href="/copyright" class="text-reset">Copyright</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Privacy Policy</a>
+            <a href="/privacy-policy" class="text-reset">Privacy Policy</a>
           </p>
         </div>
         <!-- Grid column -->

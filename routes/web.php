@@ -48,7 +48,22 @@ Route::controller(BlogController::class)->group(function(){
     // Route::get('/index', [BlogController::class, 'index']);
     Route::get('/blog/post/{post_id}', [BlogController::class, 'show']);
     Route::get('/blog/search', [BlogController::class, 'search']);  
-    Route::get('/blog/related', [BlogController::class, 'related']); 
+    Route::get('/blog/related', [BlogController::class, 'related']);
+    Route::get('/disclaimer', function () {
+        return view('disclaimer'); 
+    });
+    Route::get('/fact-checking', function () {
+        return view('fact');
+    });
+    Route::get('/terms-and-conditions', function () {
+        return view('terms'); 
+    });
+    Route::get('/copyright', function () {
+        return view('copyright'); 
+    });
+    Route::get('/privacy-policy', function () {
+        return view('privacy');
+    });
 });
 
 
