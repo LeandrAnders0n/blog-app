@@ -12,39 +12,50 @@
 }
 
 .title{
-    font-size: 36px;
+    font-size: 34px;
     font-weight: 700;
-    color:#fff;
+    color: #333;
     margin-top: 20px;
 }
 
 .subheading-title{
-    font-size: 22px;
-    color:#fff;
+    font-size: 20px;
+    color: #333;
     margin-top: 5px;
     font-weight: 700;
+    margin-bottom: 5px;
 }
 
 .details{
-    font-size: 16px;
-    color: #d3d3d3;;
+    font-size: 14px;
+    color: #989898;;
     margin-top: 10px;
     margin-bottom: 40px;
 }
 
 .content{
-    font-size: 20px;
-    color:#d3d3d3;
+    font-size: 18px;
+    color:#696969;
     margin-bottom: 3px;
     margin-top: 5px;
     /* font-family: monospace; */
 }
 .also-read{
-    font-size: 20px;
-    color:#fff;
+    text-decoration: none;
+    margin-right:100px;
+    font-size: 18px;
+    color:#696969;
     margin-top: 30px;
     margin-bottom: 30px;
-    font-weight: 900;
+    margin-left: -20px;
+}
+
+.also-read figcaption{
+    font-size:16px;
+    text-decoration: none;
+    color:#696969;
+    margin-top: 13px;
+    margin-bottom: 3px;
 }
 
 .also-read img{
@@ -59,7 +70,8 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     display: block; /* Ensure text does not affect the layout */
-    margin-top: 5px; /* Adjust as needed for spacing between image and text */
+    margin-top: 5px;
+    text-decoration: none; /* Adjust as needed for spacing between image and text */
 }
 
 

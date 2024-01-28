@@ -27,8 +27,8 @@
         }
 
         .nav-bar {
-            background-color: black;
-            color: #fff;
+            background-color: #E8E8E8;
+            color: #000;
             padding: 10px 0;
             text-align: center;
             margin-bottom: 30px;
@@ -41,7 +41,7 @@
         }
 
         .nav-link {
-            color: #fff;
+            color: #000;
             text-decoration: none;
             font-size: 16px;
             font-weight: 600;
@@ -68,7 +68,7 @@
         }
 
         .nav-link:hover {
-            color: #fff;
+            color: #000;
         }
 
         .dropdown {
@@ -98,8 +98,8 @@
 
         /* Customizing the modal styles */
         .modal-content {
-            background-color: #141414;
-            color: #fff;
+            background-color: #fff;
+            color: #000;
         }
 
         .modal-header {
@@ -118,15 +118,19 @@
         .modal-footer {
             border-top: 1px solid #ddd;
         }
+        .logo{
+            color:#3d72a6;
+            text-decoration: none;
+        }
     </style>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg nav-bar">
         <div class="container">
-            <a href="#" class="navbar-link h4 text-info" >BlueSeal</a>
+            <a href="/" class="navbar-link h4 logo" >BlueSeal</a>
             <button class="navbar-toggler navbar-toggler-white" type="button" data-toggle="modal" data-target="#mobileMenuModal">
-                <span class="navbar-toggler-icon"><i class="fa fa-solid fa-bars"></i></span>
+                <span class="navbar-toggler-icon"><i class="fa fa-solid fa-bars text-dark"></i></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
          <div class="nav-link-container">
@@ -169,7 +173,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="mobileMenuModalLabel">Menu</h5>
+                <h5 class="modal-title text-dark" id="mobileMenuModalLabel">Menu</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
