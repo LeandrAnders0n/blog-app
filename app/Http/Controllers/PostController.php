@@ -51,6 +51,7 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
+
         // $request->validate([
         //     'author_name' => 'required|string',
         //     'title' => 'required|string|max:255',
@@ -62,17 +63,23 @@ class PostController extends Controller
         // ]);
     
         try {
-            // Upload main post image to DigitalOcean Spaces
-            $postImage = $request->file('image');
-            $postImagePath = Storage::disk('do')->putFile('post-files', $postImage, 'public');
-            // Check if the post image was uploaded successfully
-            if (!$postImagePath) {
-                throw new \Exception('Failed to upload post image.');
+            $postImagePath = null;
+
+            // Check if the main post image is present in the request
+            if ($request->hasFile('image')) {
+                // Attempt to upload the main post image to DigitalOcean Spaces
+                $postImage = $request->file('image');
+                $postImagePath = Storage::disk('do')->putFile('post-files', $postImage, 'public');
+            
+                // Check if the post image was uploaded successfully
+                if (!$postImagePath) {
+                    throw new \Exception('Failed to upload main post image.');
+                }
             }
-    
+            
             // Use CDN endpoint for serving post image
-            $postImageUrl = env('DO_CDN_ENDPOINT') . '/' . $postImagePath;
-    
+            $postImageUrl = $postImagePath ? env('DO_CDN_ENDPOINT') . '/' . $postImagePath : null;
+            
             // Assuming authenticated user is the author
             $authorId = auth()->user()->id;
     
@@ -86,28 +93,42 @@ class PostController extends Controller
                 'tag' => $request->input('tag'),
             ]);
     
-            // foreach ($request->input('subheadings') as $index => $subheadingData) {
-            //     // Upload subheading image to DigitalOcean Spaces
-            //     $subheadingImage = $subheadingData['subheading_image'];
-            //     $subheadingImagePath = Storage::disk('do')->putFile('subheading-files', $subheadingImage, 'public');
-    
-            //     // Check if the subheading image was uploaded successfully
-            //     if (!$subheadingImagePath) {
-            //         throw new \Exception('Failed to upload subheading image.');
-            //     }
-    
-            //     // Use CDN endpoint for serving subheading image
-            //     $subheadingImageUrl = env('DO_CDN_ENDPOINT') . '/' . $subheadingImagePath;
-    
-            //     $postId = $post->post_id;
-            //     $subheading = Subheading::create([
-            //         'post_id' => $postId,
-            //         'subheading_id' => $index + 1,
-            //         'subheading_title' => $subheadingData['subheading_title'],
-            //         'subheading_content' => $subheadingData['subheading_content'],
-            //         'image_path' => $subheadingImageUrl,
-            //     ]);
-            // }
+            $subheadingTitles = $request->input('subheading_title', []);
+            $subheadingContents = $request->input('subheading_content', []);
+            $subheadingImages = $request->file('subheading_image', []);
+            
+            // Get the number of iterations based on the length of one of the arrays
+            $iterations = count($subheadingTitles);
+            
+            for ($index = 0; $index < $iterations; $index++) {
+                // Access the corresponding elements from each array
+                $subheadingTitle = $subheadingTitles[$index];
+                $subheadingContent = $subheadingContents[$index];
+                $subheadingImage = $subheadingImages[$index];
+            
+                // Upload subheading image to DigitalOcean Spaces
+                $subheadingImagePath = Storage::disk('do')->putFile('post-files', $subheadingImage, 'public');
+            
+                // Check if the subheading image was uploaded successfully
+                if (!$subheadingImagePath) {
+                    throw new \Exception('Failed to upload subheading image.');
+                }
+            
+                // Use CDN endpoint for serving subheading image
+                $subheadingImageUrl = env('DO_CDN_ENDPOINT') . '/' . $subheadingImagePath;
+            
+                $postId = $post->post_id;
+            
+                // Create Subheading using the accessed elements
+                $subheading = Subheading::create([
+                    'post_id' => $postId,
+                    'subheading_id' => $index + 1,
+                    'subheading_title' => $subheadingTitle,
+                    'subheading_content' => $subheadingContent,
+                    'image_path' => $subheadingImageUrl,
+                ]);
+            }
+            
     
             return response()->json(['post' => $post], 201);
     

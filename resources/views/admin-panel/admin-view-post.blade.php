@@ -3,7 +3,7 @@
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Your Title</title>
+      <title>Posts</title>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
       <link rel="stylesheet" href="{{ asset('css/admin-home.css') }}">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
@@ -61,24 +61,29 @@
             @endif
             <!-- Subheading Section -->
             <div id="subheadings-section">
-               <!-- Subheading Title -->
-               <div class="mb-3">
-                  <label for="subheading_title" class="form-label">Subheading Title</label>
-                  <input type="text" class="form-control" id="subheading_title" name="subheading_title[]">
-               </div>
-               <!-- Subheading Content -->
-               <div class="mb-3">
-                  <label for="subheading_content" class="form-label">Subheading Content</label>
-                  <textarea class="form-control" id="subheading_content" name="subheading_content[]" rows="4"></textarea>
-               </div>
-               <!-- Image Path (for Image Upload) -->
-               <div class="mb-3">
-                  <label for="subheading_image" class="form-label">Image Path (for Image Upload)</label>
-                  <input type="file" class="form-control" id="subheading_image" name="subheading_image[]" accept="image/*">
-               </div>
-            </div>
-            <!-- Button to Generate More Subheading Sections -->
-            <button type="button" class="btn btn-primary font-weight-bold mb-3" onclick="generateSubheadingSection()">Add Subheading</button>
+    <!-- Subheading Section Template -->
+    <div class="subheading-section mb-3">
+        <!-- Subheading Title -->
+        <div class="mb-3">
+            <label for="subheading_title" class="form-label">Subheading Title</label>
+            <input type="text" class="form-control subheading-title" name="subheading_title[]">
+        </div>
+        <!-- Subheading Content -->
+        <div class="mb-3">
+            <label for="subheading_content" class="form-label">Subheading Content</label>
+            <textarea class="form-control subheading-content" rows="4" name="subheading_content[]"></textarea>
+        </div>
+        <!-- Image Path (for Image Upload) -->
+        <div class="mb-3">
+            <label for="subheading_image" class="form-label">Image Path (for Image Upload)</label>
+            <input type="file" class="form-control subheading-image" accept="image/*" name="subheading_image[]">
+        </div>
+    </div>
+</div>
+
+<!-- Button to Generate More Subheading Sections -->
+<button type="button" class="btn btn-primary font-weight-bold mb-3" onclick="generateSubheadingSection()">Add Subheading</button>
+
             <!-- Comments Field for Admin -->
             @if (isset($post) && auth()->user()->isAdmin())
             <div class="mb-3">
@@ -104,8 +109,20 @@
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
       <script>
          function submitForm() {
+    // Create FormData object
     var formData = new FormData(document.querySelector('form'));
 
+    // Collect subheading data
+    var subheadingData = collectSubheadingData();
+    
+    // Append subheading data to formData
+    subheadingData.forEach(function(subheading, index) {
+        Object.keys(subheading).forEach(function(key) {
+            formData.append('subheading[' + index + '][' + key + ']', subheading[key]);
+        });
+    });
+
+    // Make AJAX request
     $.ajax({
         type: '{{ isset($post) ? "PUT" : "POST" }}',
         url: '{{ isset($post) ? route("posts.update", ["post" => $post->post_id]) : route("posts.store") }}',
@@ -113,7 +130,7 @@
         processData: false,
         contentType: false,
         success: function(response, status, xhr) {
-            // Check the status code and show a toast accordingly
+            // Handle success
             if (xhr.status === 200) {
                 Toastify({
                     text: response.message,
@@ -121,53 +138,54 @@
                     gravity: 'top',
                     backgroundColor: '#33cc33',
                     callback: function() {
-                        // Redirect to the posts.index route after the toast disappears
                         window.location.href = '{{ route("posts.index") }}';
-                    } // Green color for success
+                    }
                 }).showToast();
             } else {
-                Toastify({
-                    text: response.message,
-                    duration: 2000,
-                    gravity: 'top',
-                    backgroundColor: '#ff3333', // Red color for error
-                }).showToast();
+                // Handle other success scenarios
             }
         },
         error: function(xhr, status, error) {
-            // Handle validation errors
+            // Handle errors
             if (xhr.status === 422) {
+                // Handle validation errors
                 var errors = xhr.responseJSON.errors;
 
-                // Loop through errors and display them
                 $.each(errors, function(key, value) {
                     Toastify({
                         text: value[0],
                         duration: 2000,
                         gravity: 'top',
-                        backgroundColor: '#ff3333', // Red color for error
+                        backgroundColor: '#ff3333',
                     }).showToast();
                 });
             } else {
-                // Other types of errors
+                // Handle other types of errors
                 Toastify({
                     text: 'Error: ' + xhr.responseJSON.message,
                     duration: 2000,
                     gravity: 'top',
-                    backgroundColor: '#ff3333', // Red color for error
+                    backgroundColor: '#ff3333',
                 }).showToast();
             }
         },
     });
 }
 
-          // JavaScript function to generate more subheading sections
-          function generateSubheadingSection() {
-              // Clone the first subheading section and append it to the parent container
-              var firstSubheadingSection = document.querySelector('#subheadings-section');
-              var newSubheadingSection = firstSubheadingSection.cloneNode(true);
-              document.querySelector('#subheadings-section').appendChild(newSubheadingSection);
-          }         
+
+function generateSubheadingSection() {
+    // Clone the subheading section template and append it to the parent container
+    var subheadingTemplate = document.querySelector('.subheading-section');
+    var newSubheadingSection = subheadingTemplate.cloneNode(true);
+    document.querySelector('#subheadings-section').appendChild(newSubheadingSection);
+
+    // Clear input values in the cloned section
+    var inputs = newSubheadingSection.querySelectorAll('input, textarea');
+    inputs.forEach(function (input) {
+        input.value = '';
+    });
+}
+    
           // AJAX function for publishing a post
           function publishPost(postId) {
                      $.ajax({
