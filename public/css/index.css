@@ -61,6 +61,7 @@ body {
 
 .button-text {
     font-size: 16px;
+    font-family: 'Lato', sans-serif; font-weight: bold;
     display: inline-block;
     color: #3d72a6; /* Updated color */
     font-weight: 600;
@@ -69,6 +70,7 @@ body {
 .text-container h3 {
     padding: 15px 7px 7px;
     font-size: 18px;
+    font-family: 'Georgia', serif;font-weight: 600;
     cursor: pointer;
     text-align: left;
 }
@@ -80,7 +82,8 @@ body {
 .button {
     padding: 7px 7px;
     background-color: #3d72a6; /* Updated color */
-    color: #fff;
+    color:#fff;
+    font-family: 'Lato', sans-serif; font-weight: bold;
     text-decoration: none;
     border-radius: 5px;
     cursor: pointer;
@@ -113,19 +116,22 @@ body {
 .second-row h4 {
     color: #333;
     font-weight: 700;
+    font-family: 'Roboto Slab', serif;
     text-align: left;
     font-size: 20px;
 }
 
 .second-row p {
     font-size: 18px;
+    font-family: 'Georgia', serif;
     color: #333;
     text-align: left;
 }
 
 .second-row .button-text.button {
     color: #fff;
-    background-color: #3d72a6; /* Updated color */
+    background-color: #3d72a6; 
+    font-family: 'Lato', sans-serif; font-weight: bold;
     position: absolute;
     left: 0;
     top: 0;
@@ -138,7 +144,9 @@ body {
 
 .read-more {
     padding: 7px 7px;
-    background-color: #3d72a6; /* Updated color */
+    background-color: #3d72a6;
+    font-family: 'Lato', sans-serif; font-weight: bold;
+    font-size: 12px; /* Updated color */
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
@@ -150,13 +158,14 @@ body {
 .load-more {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #3d72a6; /* Updated color */
+    background-color: #3d72a6;
+    font-family: 'Lato', sans-serif; font-weight: bold; /* Updated color */
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
     cursor: pointer;
-    font-weight: 600;
     margin-top: 20px;
+    font-size: 14px;
     width: 80%;
 }
 

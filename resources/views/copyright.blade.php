@@ -7,23 +7,14 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
       <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
       <link rel="stylesheet" href="/css/index.css">
+      <link rel="stylesheet" href="/css/additional.css">
+      <link rel="stylesheet" href="/css/index.css">
       <title>Copyright</title>
-      <style>
-         h1{
-            color:#0dcaf0;
-         }
-         p{
-            color:#6c757d;
-         }
-         h3{
-            color:#fff
-         }
-      </style>
    </head>
-   <body>
+   <body class="bg-white">
       @include('components.navbar')
-      <div class="container-fluid">
-         <h3>DMCA Policy, Notice and Takedown Procedure</h3>
+      <div class="container-fluid bg-white">
+         <h1>DMCA Policy, Notice and Takedown Procedure</h1>
          <p>Updated on: 18 Sept, 2023</p>
          <p>At https://mosjournal.net/, we’re committed to adhering to the United States Digital Millennium Copyright Act (DMCA) and responding swiftly to any notices of alleged copyright infringement. All users of https://mosjournal.net/ are expected to comply with applicable copyright laws. Should we receive proper notification of claimed copyright infringement, we will remove or disable access to the purportedly infringing material after verifying the authenticity of the claim. Furthermore, we may terminate the accounts of repeat infringers, irrespective of our potential liability under U.S. law or other jurisdictions.</p>
          <p>When content is removed in response to a DMCA notice, https://mosjournal.net/ will make every effort to inform the content creator, allowing them the opportunity to issue a counter-notification as per Sections 512(g)(2) and (3) of the DMCA. We might keep records of all infringement notices that result in action on our end.</p>

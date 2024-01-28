@@ -44,11 +44,25 @@
             color: #000;
             text-decoration: none;
             font-size: 16px;
+            font-family: 'Roboto', sans-serif; font-weight: 300;
             font-weight: 600;
             position: relative;
             display: inline-block;
             padding: 15px 20px;
         }
+
+        .logo {
+    color: #3d72a6;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    transition: color 0.3s ease; /* Add a transition for a smooth color change on hover */
+}
+
+.logo:hover {
+    color: #2a4d77; /* Change to the desired color on hover */
+}
+
 
         .nav-link:after {
             content: "";
@@ -117,10 +131,6 @@
         .modal-body,
         .modal-footer {
             border-top: 1px solid #ddd;
-        }
-        .logo{
-            color:#3d72a6;
-            text-decoration: none;
         }
     </style>
 </head>

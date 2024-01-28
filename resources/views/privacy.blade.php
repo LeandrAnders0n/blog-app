@@ -6,23 +6,13 @@
           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
       <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/index.css">
+      <link rel="stylesheet" href="/css/additional.css">
+      <link rel="stylesheet" href="/css/index.css">
     <title>Privacy Policy</title>
-    <style>
-         h1{
-            color:#0dcaf0;
-         }
-         p{
-            color:#6c757d;
-         }
-         h3{
-            color:#fff
-         }
-      </style>
 </head>
-<body>
+<body class="bg-white">
 @include('components.navbar')
-<div class="container-fluid">
+<div class="container-fluid bg-white">
 <h1>Privacy Policy</h1>
 <h3>Privacy Policy for mosjournal</h3>
 <p>At mosjournal, accessible from www.mosjournal.net, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by mosjournal and how we use it.</p>

@@ -18,7 +18,7 @@
         <div class="container">
             <div class="image-row">
                 @foreach ($posts->take(3) as $post) {{-- Display first 4 posts --}}
-                <a href="/blog/post/{{ $post->post_id }}" class="image-container">
+                <a href="/blog/post/{{ $post->post_id }}" class="image-container mb-3">
                     <img class="image" src="{{ $post->image_path }}" alt="{{ $post->title }}">
                     <div class="text-container">
                         <div class="button-text button">{{ $post->tag }}</div>

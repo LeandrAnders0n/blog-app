@@ -6,23 +6,13 @@
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
       <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+      <link rel="stylesheet" href="/css/additional.css">
       <link rel="stylesheet" href="/css/index.css">
       <title>Fact Checking</title>
-      <style>
-         h1{
-            color:#0dcaf0;
-         }
-         p{
-            color:#6c757d;
-         }
-         h3{
-            color:#fff
-         }
-      </style>
    </head>
-   <body>
+   <body class="bg-white">
       @include('components.navbar')
-      <div class="container-fluid">
+      <div class="container-fluid bg-white">
          <h1>Fact-Checking Policy</h1>
          <p>
             At Mosjournal, we deliver accurate and reliable information to our readers. Our fact-checking policy ensures that our content maintains a high standard of credibility. We understand the importance of providing accurate information in an age where misinformation can spread rapidly. Our policy outlines the steps we take to verify the accuracy of the content we publish:

@@ -1,0 +1,39 @@
+body{
+    background-color: #fff;
+}
+.container-fluid{
+    background-color: #fff;
+} 
+h1 {
+   font-size: 34px;
+font-family: 'Roboto Slab', serif;
+font-weight: 700;
+color: #333;
+margin-top: 20px;
+}
+
+.details{
+   font-size: 14px;
+font-family: 'Lato', sans-serif;
+color: #989898;;
+margin-top: 10px;
+}
+p {
+   .content {
+      font-size: 18px;
+      font-family: 'Georgia', serif;
+      color: #696969;
+      margin-bottom: 3px;
+      margin-top: 5px;
+   }
+}
+
+h3 {
+   font-size: 20px;
+   font-family: 'Open Sans', sans-serif;
+   font-style: italic;
+   color: #333;
+   margin-top: 5px;
+   font-weight: 700;
+   margin-bottom: 5px;
+}
